@@ -24,7 +24,7 @@ class LayoutComponent extends Component {
     showImageLoading: false,
     height: this.props.config.defaultSize.height,
     width: this.props.config.defaultSize.width,
-    alt: '',
+    url: '',
   };
 
   componentDidUpdate(prevProps) {
@@ -37,7 +37,7 @@ class LayoutComponent extends Component {
         showImageLoading: false,
         height: config.defaultSize.height,
         width: config.defaultSize.width,
-        alt: '',
+        url: '',
       });
     } else if (
       config.uploadCallback !== prevProps.config.uploadCallback ||
@@ -92,7 +92,7 @@ class LayoutComponent extends Component {
   };
 
   addImageFromState = () => {
-    const { imgSrc, alt } = this.state;
+    const { imgSrc, url } = this.state;
     let { height, width } = this.state;
     const { onChange } = this.props;
     if (!isNaN(height)) {
@@ -101,7 +101,7 @@ class LayoutComponent extends Component {
     if (!isNaN(width)) {
       width += 'px';
     }
-    onChange(imgSrc, height, width, alt);
+    onChange(imgSrc, height, width, url);
   };
 
   showImageURLOption = () => {
@@ -171,7 +171,7 @@ class LayoutComponent extends Component {
       dragEnter,
       height,
       width,
-      alt,
+      url,
     } = this.state;
     const {
       config: {
@@ -181,7 +181,7 @@ class LayoutComponent extends Component {
         urlEnabled,
         previewImage,
         inputAccept,
-        alt: altConf,
+        url: urlConf,
       },
       doCollapse,
       translations,
@@ -266,19 +266,19 @@ class LayoutComponent extends Component {
             <span className="rdw-image-mandatory-sign">*</span>
           </div>
         )}
-        {altConf.present && (
+        {urlConf.present && (
           <div className="rdw-image-modal-size">
-            <span className="rdw-image-modal-alt-lbl">Alt Text</span>
+            <span className="rdw-image-modal-alt-lbl">{translations['components.controls.image.urlText']}</span>
             <input
               onChange={this.updateValue}
               onBlur={this.updateValue}
-              value={alt}
-              name="alt"
+              value={url}
+              name="url"
               className="rdw-image-modal-alt-input"
-              placeholder="alt"
+              placeholder={translations['components.controls.image.urlPlaceholder']}
             />
             <span className="rdw-image-mandatory-sign">
-              {altConf.mandatory && '*'}
+              {urlConf.mandatory && '*'}
             </span>
           </div>
         )}
@@ -309,7 +309,7 @@ class LayoutComponent extends Component {
             className="rdw-image-modal-btn"
             onClick={this.addImageFromState}
             disabled={
-              !imgSrc || !height || !width || (altConf.mandatory && !alt)
+              !imgSrc || !height || !width || (urlConf.mandatory && !url)
             }
           >
             {translations['generic.add']}
