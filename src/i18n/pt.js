@@ -43,8 +43,8 @@ export default {
   "components.controls.image.image": "Imagem",
   "components.controls.image.fileUpload": "Carregar arquivo",
   "components.controls.image.byURL": "URL",
-  "components.controls.image.urlText": "Ligação",
-  "components.controls.image.urlPlaceholder": "URL",
+  "components.controls.image.altText": "Ligação",
+  "components.controls.image.altPlaceholder": "URL",
   "components.controls.image.dropFileText":
     "Arraste uma imagem aqui ou clique para carregar",
 

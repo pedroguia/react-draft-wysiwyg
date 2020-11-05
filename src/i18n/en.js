@@ -43,8 +43,8 @@ export default {
   "components.controls.image.image": "Image",
   "components.controls.image.fileUpload": "File Upload",
   "components.controls.image.byURL": "URL",
-  "components.controls.image.urlText": "Ligação",
-  "components.controls.image.urlPlaceholder": "URL",
+  "components.controls.image.altText": "Ligação",
+  "components.controls.image.altPlaceholder": "URL",
   "components.controls.image.dropFileText": "Drop the file or click to upload",
 
   // Inline
